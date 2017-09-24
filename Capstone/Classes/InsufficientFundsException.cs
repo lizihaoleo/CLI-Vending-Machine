@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using Capstone.Classes;
 
 namespace Capstone.Classes
 {
    public class InsufficientFundsException : VendingMachineException
     {
 
-        //if balance >= cost; return items
-        // if balance <cost; return error/to menu 
+        public InsufficientFundsException(string message)
+            : base(message)
+        {
+            
+        }
 
     }
 }

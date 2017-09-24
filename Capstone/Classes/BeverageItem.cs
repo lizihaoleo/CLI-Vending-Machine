@@ -9,8 +9,7 @@ namespace Capstone.Classes
    public class BeverageItem : ItemGeneral
     {
 
-        //public override decimal Cost => this.Cost;
-        //public override string Name => this.Name;
+       
         public override string Consume()
         {
             return "Glug Glug, Yum!";

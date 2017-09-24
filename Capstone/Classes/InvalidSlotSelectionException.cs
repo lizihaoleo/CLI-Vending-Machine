@@ -8,13 +8,13 @@ namespace Capstone.Classes
 {
    public class InvalidSlotSelectionException : VendingMachineException
     {
-       
-        public string Invalid()
+
+        public InvalidSlotSelectionException(string message)
+            : base(message)
         {
-            return "Selection does not exist";
+
         }
-        //while selection is within range; proceed with transaction
-        //if not in range ; return error/menu
+       
 
     }
 }

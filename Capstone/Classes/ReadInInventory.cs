@@ -11,10 +11,7 @@ namespace Capstone.Classes
     public class ReadInInventory
     {
         private string filePath;
-        private int Cost;
-        private int InitialQuantity;
-        private int Product;
-        private int Slotld;
+       
 
         public ReadInInventory(string filePath)
         {
@@ -25,12 +22,7 @@ namespace Capstone.Classes
 
 
         }
-
-
-        //private List<ItemGeneral> CreateInitialInventory(string[] lineData)
-        //{
-            
-        //}
+        
 
 
         Dictionary<string, List<ItemGeneral>> inventory = new Dictionary<string, List<ItemGeneral>>();

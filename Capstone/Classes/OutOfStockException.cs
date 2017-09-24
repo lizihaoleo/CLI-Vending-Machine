@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using Capstone.Classes;
 
 namespace Capstone.Classes
 {
   public  class OutOfStockException : VendingMachineException
     {
-        //while item count > 0 ; return item
-        //if item <=0 ; return error/menu
+        public OutOfStockException(string message)
+            : base(message)
+        {
+
+        }
 
     }
 }

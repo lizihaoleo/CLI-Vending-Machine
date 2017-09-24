@@ -10,33 +10,44 @@ namespace Capstone.Classes
    public class TransactionFileLog
     {
 
-        private string filepath;
+        public string filePath;
 
         public TransactionFileLog(string filepath)
         {
-            filepath = "Vending Machine Log";
+            filepath = "VendingMachineLog.txt";
             string cd = Directory.GetCurrentDirectory();
-            string vmLog = Path.Combine(cd, filepath);
+            string filePathOld = Path.Combine(cd, filepath);
+            this.filePath = filePathOld;
         }
 
-        public void RecordCompleteTransaction(decimal initialAmount)
+        public void RecordFinalChange(decimal initialAmount)
         {
+            using(StreamWriter sw = new StreamWriter(filePath, true))
+            {
+                sw.WriteLine(DateTime.Now +" RETURN CHANGE " +initialAmount + " $0.00");
 
+            }
         }
 
         public void RecordDeposit(decimal depositAmount, decimal finalBalance)
         {
+            using (StreamWriter sw = new StreamWriter(filePath, true))
+            {
+                sw.WriteLine(DateTime.Now + " FEED MONEY: $" + depositAmount+ " $" + finalBalance);
+                
 
+            }
         }
 
         public void RecordPurchase(string productName, string slotid, decimal initialBalance, decimal finalBalance)
         {
-
+            using (StreamWriter sw = new StreamWriter(filePath, true))
+            {
+                sw.WriteLine(DateTime.Now + " " + productName +" "+slotid+" "+initialBalance+" "+finalBalance);
+               
+            }
         }
-        public void WriteTransaction(string message)
-        {
-
-        }
+        
 
        
 

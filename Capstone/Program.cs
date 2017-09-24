@@ -12,7 +12,7 @@ namespace Capstone
         static void Main(string[] args)
         {
             VendingMachine vendomatic = new VendingMachine();
-            MainMenu vendo = new MainMenu();
+            MainMenuCLI vendo = new MainMenuCLI();
             
             vendo.Display();
 

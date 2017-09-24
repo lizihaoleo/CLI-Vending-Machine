@@ -24,14 +24,7 @@ namespace Capstone.Classes
         }
 
         public abstract string Consume();
-        //{
-        //    return "";
-        //}
-
-        //public override string ToString()
-        //{
-        //    return this.Cost.ToString("C");
-        //}
+       
 
 
         public ItemGeneral(string name, decimal cost)

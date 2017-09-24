@@ -7,11 +7,11 @@ using System.IO;
 
 namespace Capstone.Classes
 {
-    public class VendingMachine : VendingMachineException
+    public class VendingMachine 
     {
 
         private decimal currentBalance;
-        private Dictionary<string, List<ItemGeneral>> inventory;
+        public Dictionary<string, List<ItemGeneral>> inventory;
         private ReadInInventory inventorysource;
         //private TransactionFileLog transactionLogger;
 
@@ -51,8 +51,7 @@ namespace Capstone.Classes
 
         public ItemGeneral Purchase(string slotID)
         {
-            //try
-            //{
+            
 
             for (int i = 0; i < Slots.Length ; i++)
             {

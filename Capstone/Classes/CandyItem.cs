@@ -8,8 +8,7 @@ namespace Capstone.Classes
 {
    public class CandyItem : ItemGeneral
     {
-        //public override decimal Cost => 0;
-        //public override string Name => "";
+        
         public override string Consume()
         {
             return "Munch Munch, Yum!";

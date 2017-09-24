@@ -50,7 +50,7 @@
     <Compile Include="Classes\InvalidSlotSelectionException.cs" />
     <Compile Include="Classes\ItemGeneral.cs" />
     <Compile Include="Classes\CandyItem.cs" />
-    <Compile Include="Classes\MainMenu.cs" />
+    <Compile Include="Classes\MainMenuCLI.cs" />
     <Compile Include="Classes\OutOfStockException.cs" />
     <Compile Include="Classes\TransactionFileLog.cs" />
     <Compile Include="Classes\VendingMachine.cs" />
