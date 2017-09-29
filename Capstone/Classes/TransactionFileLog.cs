@@ -22,29 +22,46 @@ namespace Capstone.Classes
 
         public void RecordFinalChange(decimal initialAmount)
         {
-            using(StreamWriter sw = new StreamWriter(filePath, true))
+            try
             {
-                sw.WriteLine(DateTime.Now +" RETURN CHANGE " +initialAmount + " $0.00");
-
+                using (StreamWriter sw = new StreamWriter(filePath, true))
+                {
+                    sw.WriteLine(DateTime.Now + " RETURN CHANGE " + initialAmount + " $0.00");
+                }
+            }
+            catch(IOException ex)
+            {
+                Console.WriteLine("Error writing tx file.");
             }
         }
 
         public void RecordDeposit(decimal depositAmount, decimal finalBalance)
         {
-            using (StreamWriter sw = new StreamWriter(filePath, true))
+            try
             {
-                sw.WriteLine(DateTime.Now + " FEED MONEY: $" + depositAmount+ " $" + finalBalance);
-                
-
+                using (StreamWriter sw = new StreamWriter(filePath, true))
+                {
+                    sw.WriteLine(DateTime.Now + " FEED MONEY: $" + depositAmount + " $" + finalBalance);
+                }
+            }
+            catch(IOException ex)
+            {
+                Console.WriteLine("Error writing tx file.");
             }
         }
 
         public void RecordPurchase(string productName, string slotid, decimal initialBalance, decimal finalBalance)
         {
-            using (StreamWriter sw = new StreamWriter(filePath, true))
+            try
             {
-                sw.WriteLine(DateTime.Now + " " + productName +" "+slotid+" "+initialBalance+" "+finalBalance);
-               
+                using (StreamWriter sw = new StreamWriter(filePath, true))
+                {
+                    sw.WriteLine(DateTime.Now + " " + productName + " " + slotid + " " + initialBalance + " " + finalBalance);
+                }
+            }
+            catch(IOException ex)
+            {
+                Console.WriteLine("Error writing tx file.");            
             }
         }
         

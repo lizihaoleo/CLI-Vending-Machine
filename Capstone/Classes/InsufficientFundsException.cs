@@ -8,13 +8,13 @@ using Capstone.Classes;
 
 namespace Capstone.Classes
 {
-   public class InsufficientFundsException : VendingMachineException
+    public class InsufficientFundsException : VendingMachineException
     {
 
         public InsufficientFundsException(string message)
             : base(message)
         {
-            
+
         }
 
     }

@@ -11,22 +11,18 @@ namespace Capstone.Classes
     public class ReadInInventory
     {
         private string filePath;
-       
+
+
 
         public ReadInInventory(string filePath)
         {
-
             string currentDirectory = Directory.GetCurrentDirectory();
-
-            this.filePath = Path.Combine(currentDirectory,filePath);
-
-
+            this.filePath = Path.Combine(currentDirectory, filePath);
         }
-        
+
 
 
         Dictionary<string, List<ItemGeneral>> inventory = new Dictionary<string, List<ItemGeneral>>();
-        
 
         public Dictionary<string, List<ItemGeneral>> GetInventory()
         {
@@ -37,57 +33,52 @@ namespace Capstone.Classes
 
                     string thisLine = sr.ReadLine();
                     string[] temp = thisLine.Split('|');
+
                     List<ItemGeneral> list = new List<ItemGeneral>();
 
+                    const int SlotId = 0;
+                    const int ProductName = 1;
+                    const int Cost = 2;
 
                     if (temp[0].Contains("A"))
                     {
                         for (int i = 0; i < 5; i++)
                         {
-                            ChipsItem chips = new ChipsItem(temp[1], decimal.Parse(temp[2]));
+                            ChipsItem chips = new ChipsItem(temp[ProductName], decimal.Parse(temp[Cost]));
                             list.Add(chips);
-
                         }
-
                     }
 
                     if (temp[0].Contains("B"))
                     {
                         for (int i = 0; i < 5; i++)
                         {
-                            CandyItem candy = new CandyItem(temp[1], decimal.Parse(temp[2]));
+                            CandyItem candy = new CandyItem(temp[ProductName], decimal.Parse(temp[Cost]));
                             list.Add(candy);
-
                         }
-
                     }
 
                     if (temp[0].Contains("C"))
                     {
                         for (int i = 0; i < 5; i++)
                         {
-                            BeverageItem drink = new BeverageItem(temp[1], decimal.Parse(temp[2]));
+                            BeverageItem drink = new BeverageItem(temp[ProductName], decimal.Parse(temp[Cost]));
                             list.Add(drink);
-
                         }
-
                     }
-
 
                     if (temp[0].Contains("D"))
                     {
                         for (int i = 0; i < 5; i++)
                         {
-                            GumItem gum = new GumItem(temp[1], decimal.Parse(temp[2]));
+                            GumItem gum = new GumItem(temp[ProductName], decimal.Parse(temp[Cost]));
                             list.Add(gum);
-
                         }
-
                     }
 
 
-                    inventory[temp[0]] = list;
-                    
+                    inventory[temp[SlotId]] = list;
+
                 }
 
             }

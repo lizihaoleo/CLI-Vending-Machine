@@ -9,13 +9,12 @@ namespace Capstone.Classes
     public class ChipsItem : ItemGeneral
     {
 
-       
         public override string Consume()
         {
             return "Crunch Crunch, Yum!";
         }
 
-        public  ChipsItem (string name, decimal cost):base(name, cost)
+        public ChipsItem(string name, decimal cost) : base(name, cost)
         {
         }
 

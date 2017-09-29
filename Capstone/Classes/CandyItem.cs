@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Capstone.Classes
 {
-   public class CandyItem : ItemGeneral
+    public class CandyItem : ItemGeneral
     {
-        
+
         public override string Consume()
         {
             return "Munch Munch, Yum!";
         }
 
-        public CandyItem (string name, decimal cost) : base(name, cost)
+        public CandyItem(string name, decimal cost) : base(name, cost)
         {
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Classes
 {
-   public class InvalidSlotSelectionException : VendingMachineException
+    public class InvalidSlotSelectionException : VendingMachineException
     {
 
         public InvalidSlotSelectionException(string message)
@@ -14,7 +14,6 @@ namespace Capstone.Classes
         {
 
         }
-       
 
     }
 }

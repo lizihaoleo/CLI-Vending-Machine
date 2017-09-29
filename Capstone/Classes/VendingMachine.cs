@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Capstone.Classes
 {
-    public class VendingMachine 
+    public class VendingMachine
     {
 
         private decimal currentBalance;
@@ -19,10 +19,12 @@ namespace Capstone.Classes
         {
             get { return this.currentBalance; }
         }
+
         public string[] Slots
         {
             get { return inventory.Keys.ToArray(); }
         }
+
         public VendingMachine(Dictionary<string, List<ItemGeneral>> inventory)
         {
             this.inventory = inventory;
@@ -32,17 +34,19 @@ namespace Capstone.Classes
         {
             this.currentBalance += Convert.ToDecimal(dollars);
         }
+
         public ItemGeneral GetItemAtSlot(string slotID)
         {
             List<ItemGeneral> list = inventory[slotID];
             return list[0];
         }
+
         public VendingMachine()
         {
             inventorysource = new ReadInInventory("vendingmachine.csv");
             inventory = inventorysource.GetInventory();
         }
-      
+
 
         public int GetQuantityRemaining(string slotID)
         {
@@ -51,32 +55,43 @@ namespace Capstone.Classes
 
         public ItemGeneral Purchase(string slotID)
         {
-            
-
-            for (int i = 0; i < Slots.Length ; i++)
+            if (!inventory.ContainsKey(slotID))
             {
-                if (slotID == Slots[i])
-                {
-                    if (inventory[slotID].Count > 0)
-                    {
-                        if (this.currentBalance >= inventory[slotID][0].Cost)
-                        {
-                            
-                            this.currentBalance -= inventory[slotID][0].Cost;
-                            ItemGeneral im = inventory[slotID][0];
-                            inventory[slotID].Remove(inventory[slotID][0]);
-                            return im;
-
-                        }
-
-                    }
-
-                }
-
+                throw new InvalidSlotSelectionException($"{slotID} does not exist.");
+            }
+            if (inventory[slotID].Count == 0)
+            {
+                throw new OutOfStockException($"There are no items left in {slotID}");
+            }
+            if (this.currentBalance < inventory[slotID][0].Cost)
+            {
+                throw new InsufficientFundsException($"You are short by ${inventory[slotID][0].Cost - this.currentBalance}");
             }
 
-            return null;
+            this.currentBalance -= inventory[slotID][0].Cost;
+            ItemGeneral itemToDispense = inventory[slotID][0];
+            inventory[slotID].Remove(inventory[slotID][0]);
+            return itemToDispense;
 
+
+            //for (int i = 0; i < Slots.Length; i++)
+            //{
+            //    if (slotID == Slots[i])
+            //    {
+            //        if (inventory[slotID].Count > 0)
+            //        {
+            //            if (this.currentBalance >= inventory[slotID][0].Cost)
+            //            {
+            //this.currentBalance -= inventory[slotID][0].Cost;
+            //ItemGeneral itemToDispense = inventory[slotID][0];
+            //inventory[slotID].Remove(inventory[slotID][0]);
+            //return itemToDispense;
+            //            }
+            //        }
+            //    }
+            //}
+
+            //return null;
         }
 
         public Change ReturnChange()

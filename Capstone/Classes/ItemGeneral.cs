@@ -11,16 +11,15 @@ namespace Capstone.Classes
         private string name;
         private decimal cost;
 
-        public virtual decimal Cost
+        public decimal Cost
         {
             get { return this.cost; }
         }
 
 
-        public virtual string Name
+        public string Name
         {
             get { return this.name; }
-
         }
 
         public abstract string Consume();

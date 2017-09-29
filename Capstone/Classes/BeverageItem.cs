@@ -6,20 +6,18 @@ using System.Threading.Tasks;
 
 namespace Capstone.Classes
 {
-   public class BeverageItem : ItemGeneral
+    public class BeverageItem : ItemGeneral
     {
 
-       
         public override string Consume()
         {
             return "Glug Glug, Yum!";
         }
 
-        public BeverageItem (string name, decimal cost) : base(name, cost)
+        public BeverageItem(string name, decimal cost) : base(name, cost)
         {
-          
+
         }
 
-       
     }
 }

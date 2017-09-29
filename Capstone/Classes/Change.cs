@@ -18,18 +18,22 @@ namespace Capstone.Classes
         {
             get { return this.dimes; }
         }
+
         public int Nickels
         {
             get { return this.nickles; }
         }
+
         public int Quarters
         {
             get { return this.quarters; }
         }
+
         public double TotalChange
         {
             get { return this.totalChange; }
         }
+
         public Change(decimal amountInDollars)
         {
             this.totalChange = decimal.ToDouble(amountInDollars);
@@ -41,7 +45,7 @@ namespace Capstone.Classes
                     amountInDollars -= .25M;
 
                 }
-                else if(amountInDollars > .10M)
+                else if(amountInDollars >= .10M)
                 {
                     this.dimes++;
                     amountInDollars -= .10M;
@@ -50,47 +54,9 @@ namespace Capstone.Classes
                 {
                     this.nickles++;
                     amountInDollars -= .05M;
-                }
-
-              
-                
+                }                              
             }
              
-        }
-        public Change(int amountInCents)
-        {
-            this.totalChange = amountInCents;
-            while (amountInCents >= .05M)
-            {
-                if (amountInCents > .25M)
-                {
-                    this.quarters++;
-                    amountInCents -= 25;
-
-                }
-                else if (amountInCents > .10M)
-                {
-                    this.dimes++;
-                    amountInCents -= 10;
-                }
-                else if (amountInCents == .05M)
-                {
-                    this.nickles++;
-                    amountInCents -= 05;
-                }
-
-
-
-            }
-
-
-        }
-        public bool Equals(object obj)
-        {
-            return (TotalChange == 0);
-        }
-
-
-
+        }                
     }
 }
